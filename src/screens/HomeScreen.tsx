@@ -6,6 +6,7 @@ import {
   Dimensions,
   FlatList,
   Image,
+  Keyboard,
   StyleSheet,
   Text,
   TextInput,
@@ -29,6 +30,7 @@ const HomeScreen: React.FC = () => {
         'The search string must be more than 3 characters. Try again.',
       );
     } else {
+      Keyboard.dismiss();
       setEmptyResult(false);
       setSearchResult([]);
       setError(false);
@@ -75,7 +77,6 @@ const HomeScreen: React.FC = () => {
         />
         <View style={styles.buttons}>
           <TouchableOpacity
-            //   <Button
             onPress={() => {
               handleSearch();
             }}>
