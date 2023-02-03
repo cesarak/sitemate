@@ -7,6 +7,8 @@ import {
   FlatList,
   Image,
   Keyboard,
+  Modal,
+  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -22,6 +24,7 @@ const HomeScreen: React.FC = () => {
   const [searching, setSearching] = useState(false);
   const [error, setError] = useState(false);
   const [emptyResult, setEmptyResult] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const handleSearch = () => {
     if (query.length < 3) {
@@ -63,6 +66,13 @@ const HomeScreen: React.FC = () => {
           style={styles.img}
           resizeMode="contain"
         />
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
+          <Image
+            source={require('../assets/imgs/newsapi.png')}
+            style={styles.img}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.content}>
         <Text style={styles.text}>Search for any kind of news:</Text>
@@ -118,9 +128,40 @@ const HomeScreen: React.FC = () => {
         )}
       </View>
       <View style={styles.footer}></View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={stylesModal.main}>
+          <View style={stylesModal.header}>
+            <Pressable
+              style={[stylesModal.button, stylesModal.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.text}>Hide Modal</Text>
+            </Pressable>
+          </View>
+          <View style={stylesModal.content}>
+            <Text style={[stylesModal.text, stylesModal.title]}>
+              Search History
+            </Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
+
+const stylesModal = StyleSheet.create({
+  main: {},
+  button: {},
+  buttonClose: {},
+  text: {},
+  title: {},
+  content: {},
+});
 
 const styles = StyleSheet.create({
   main: {
