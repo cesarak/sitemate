@@ -12,54 +12,6 @@ import HomeScreen from './screens/HomeScreen';
 
 const App = () => {
   return (
-    //   <NavigationContainer>
-    //   <Stack.Navigator
-    //     initialRouteName="Home"
-    //     screenOptions={{
-    //       headerTintColor: theme.colors.menuTitleColor,
-    //       headerBackTitle: ' ',
-    //       headerStyle: {
-    //         backgroundColor: 'white',
-    //       },
-    //       headerTitleStyle: {
-    //         fontWeight: 'bold',
-    //       },
-    //     }}>
-    //     <Stack.Screen
-    //       name="Home"
-    //       component={HomeScreen}
-    //       options={{
-    //         headerShown: false,
-    //         headerTitle: '',
-    //       }}
-    //     />
-    //     <Stack.Screen
-    //       name="NovaManha"
-    //       component={NovaManhaScreen}
-    //       options={{
-    //         headerShown: false,
-    //         headerTitle: '',
-    //       }}
-    //     />
-    //     <Stack.Screen
-    //       name="NovaBrasil"
-    //       component={NovaBrasilScreen}
-    //       options={{
-    //         headerShown: false,
-    //         headerTitle: '',
-    //       }}
-    //     />
-    //     <Stack.Screen
-    //       name="ClubNB"
-    //       component={ClubNovaBrasilScreen}
-    //       options={{
-    //         headerShown: false,
-    //         headerTitle: '',
-    //       }}
-    //     />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-
     <SafeAreaView>
       <HomeScreen />
     </SafeAreaView>
