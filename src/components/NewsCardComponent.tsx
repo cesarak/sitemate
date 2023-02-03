@@ -15,23 +15,21 @@ const NewsCardComponent = function ({props}) {
   // const navigation = useNavigation<NavigationProp<any>>();
 
   return (
-    <TouchableOpacity
-      key={`touch-each-news-${props.id}`}
-      style={{alignItems: 'center'}}
-      onPress={() => {
-        // navigation.navigate('Details', {id: props.id});
-      }}>
-      <View style={styles.main}>
-        {/* <View style={styles.imgCnt}> */}
-        <Image source={{uri: props.imageUrl}} style={styles.image} />
-        {/* </View> */}
-        <View style={styles.txtCnt}>
-          <Text style={styles.title}>{props.title}</Text>
-          <Text style={[styles.source]}>Source: {props.source}</Text>
-          <Text style={styles.data}>{props.description}</Text>
-        </View>
+    // <TouchableOpacity
+    //   key={`touch-each-news-${props.id}`}
+    //   style={{alignItems: 'center'}}
+    //   onPress={() => {
+    //     // navigation.navigate('Details', {id: props.id});
+    //   }}>
+    <View style={styles.main}>
+      <Image source={{uri: props.imageUrl}} style={styles.image} />
+      <View style={styles.txtCnt}>
+        <Text style={styles.title}>{props.title}</Text>
+        <Text style={[styles.source]}>Source: {props.source}</Text>
+        <Text style={styles.data}>{props.description}</Text>
       </View>
-    </TouchableOpacity>
+    </View>
+    // </TouchableOpacity>
   );
 };
 
