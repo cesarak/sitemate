@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import NewsCardComponent from '../components/NewsCardComponent';
@@ -72,12 +73,25 @@ const HomeScreen: React.FC = () => {
             setQuery(text);
           }}
         />
-        <Button
-          onPress={() => {
-            handleSearch();
-          }}
-          title="Search"
-        />
+        <View style={styles.buttons}>
+          <TouchableOpacity
+            //   <Button
+            onPress={() => {
+              handleSearch();
+            }}>
+            <View style={[styles.button, styles.btnSearch]}>
+              <Text style={styles.btnText}>Search</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setSearchResult([]);
+            }}>
+            <View style={[styles.button, styles.btnClear]}>
+              <Text style={styles.btnText}>Clear Results</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
         {searching && (
           <View style={styles.loading}>
             <ActivityIndicator color={'white'} />
@@ -142,6 +156,28 @@ const styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'center',
     alignSelf: 'center',
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  button: {
+    width: 150,
+    borderRadius: 10,
+    paddingVertical: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnSearch: {
+    backgroundColor: '#5bc0de',
+  },
+  btnClear: {
+    backgroundColor: '#d9534f',
+  },
+  btnText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   footer: {},
 });
