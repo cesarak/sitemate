@@ -66,13 +66,13 @@ const HomeScreen: React.FC = () => {
           style={styles.img}
           resizeMode="contain"
         />
-        <TouchableOpacity onPress={() => setModalVisible(true)}>
+        {/* <TouchableOpacity onPress={() => setModalVisible(true)}>
           <Image
-            source={require('../assets/imgs/newsapi.png')}
-            style={styles.img}
+            source={require('../assets/imgs/history.png')}
+            style={styles.history}
             resizeMode="contain"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View style={styles.content}>
         <Text style={styles.text}>Search for any kind of news:</Text>
@@ -130,7 +130,6 @@ const HomeScreen: React.FC = () => {
       <View style={styles.footer}></View>
       <Modal
         animationType="slide"
-        transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
@@ -140,7 +139,11 @@ const HomeScreen: React.FC = () => {
             <Pressable
               style={[stylesModal.button, stylesModal.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.text}>Hide Modal</Text>
+              <Image
+                source={require('../assets/imgs/close.png')}
+                style={styles.img}
+                resizeMode="contain"
+              />
             </Pressable>
           </View>
           <View style={stylesModal.content}>
@@ -171,9 +174,17 @@ const styles = StyleSheet.create({
   header: {
     justifyContent: 'center',
     alignSelf: 'center',
+    flexDirection: 'row',
   },
   img: {
     width: Dimensions.get('window').width * 0.5,
+  },
+  history: {
+    tintColor: 'white',
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    alignSelf: 'flex-end',
   },
   text: {
     color: 'white',
